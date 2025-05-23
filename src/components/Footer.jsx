@@ -1,28 +1,31 @@
 const Footer = () => {
   return (
-    <>
-      <div className="py-5 border bg-gray-100 flex justify-between px-72">
+    <div className="footer-containt py-5 border bg-gray-100 px-4 md:px-20 lg:px-72">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+        {/* Left Section */}
         <div>
           <p>
-            @2025 Rishav Kumar <span>All Rights Reserved</span>
+            Created By <b>Rishav Kumar</b> <span>@2025 All Rights Reserved</span>
           </p>
         </div>
+
+        {/* Right Section (Links) */}
         <div className="space-x-5">
-          <a href="/about" className="hover:underline">
+          <a href="#about" className="hover:underline">
             About
           </a>
           <a href="/about" className="hover:underline">
             Privacy Policy
           </a>
           <a href="/about" className="hover:underline">
-            Licensing{" "}
+            Licensing
           </a>
-          <a href="/about" className="hover:underline">
+          <a href="#contact" className="hover:underline">
             Contact
           </a>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

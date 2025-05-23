@@ -1,71 +1,85 @@
 import { useState } from "react";
 
 const Header = () => {
+  const [brandName] = useState("Portfolio");
+  const [menuLinks] = useState([
+    { title: "Home", link: "#home", id: 1 },
+    { title: "About", link: "#about", id: 2 },
+    { title: "Skills", link: "#skills", id: 3 },
+    { title: "Projects", link: "#myproject", id: 4 },
+    { title: "Certificate", link: "#certificates", id: 5 },
+    { title: "Contact", link: "#contacts", id: 6 },
+  ]);
+  const [actionButton] = useState({
+    title: "Download CV",
+    link: "https://drive.google.com/file/d/1GC1MWHglZ4JoXAT6K_dByOMS1cg_ewt2/view",
+  });
 
-    const[brandName, setBrandName]= useState("Rishav Kumar");
-    const [menuLinks, setMenuKinks] = useState([
-        {
-            title: "Home",
-            link:"/home",
-            id:1,
-        },
-        {
-            title: "About",
-            link:"/about",
-            id:2,
-        },
-        {
-            title: "Skills",
-            link:"/skills",
-            id:3,
-        },
-        {
-            title: "Portfolio",
-            link:"/portfolio",
-            id:4,
-        },
-        {
-            title: "Contact",
-            link:"/contact",
-            id:5,
-        }
-    ])
-    const [actionButton, setActionButton] = useState({
-        title:"Hire Me",
-        link: "/hire-me",
-    });
-    return (
-        <>
-        
-           <div className="h-20 border main flex justify-between items-center px-16 bg-gray-100 ">
+  const [isOpen, setIsOpen] = useState(false);
 
-            <div>
-                {/*brand logo*/}
-                <h1 className="text-2xl font-bold">{brandName}</h1>
-            </div>
+  return (
+    <header className="fixed top-0 left-0 w-full z-50 bg-violet-200 shadow-md">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        {/* Brand */}
+        <h1 className="text-2xl font-bold">{brandName}</h1>
 
-            <div className="space-x-5">
-                {/*menu link*/}
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex space-x-5">
+          {menuLinks.map((link) => (
+            <a
+              key={link.id}
+              href={link.link}
+              className="hover:text-orange-600 transition"
+            >
+              {link.title}
+            </a>
+          ))}
+        </nav>
 
-                {menuLinks.map((link) => (
-                    <a key={link.id} href="{link.link}" className="hover:text-orange-600">{link.title}</a>
-                ))}
+        {/* Action Button */}
+        <a
+          href={actionButton.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-block px-4 py-2 bg-orange-500 rounded-full text-white hover:bg-orange-600 transition"
+        >
+          {actionButton.title}
+        </a>
 
-                {/* <a href="/home" className="hover:text-orange-700">Home</a>
-                <a href="/about" className="hover:text-orange-700">About</a>
-                <a href="/skills" className="hover:text-orange-700">Skills</a>
-                <a href="/portfolio" className="hover:text-orange-700">Portfolio</a>
-                <a href="/contact" className="hover:text-orange-700">Contact</a> */}
-            </div>
+        {/* Mobile Menu Toggle */}
+        <button
+          className="md:hidden text-2xl"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <i className="fa-solid fa-bars"></i>
+        </button>
+      </div>
 
-            <div>
-                {/*button*/}
-                <a href="{actionButton.link}" className="px-3 py-1 bg-orange-500 rounded-full text-black shadow hover:bg-orange-600 text-1xl">{actionButton.title}</a>
-            </div>
-
-           </div>
-        </>
-    )
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-white px-4 pb-4 space-y-2 shadow">
+          {menuLinks.map((link) => (
+            <a
+              key={link.id}
+              href={link.link}
+              onClick={() => setIsOpen(false)}
+              className="block text-black hover:text-orange-600"
+            >
+              {link.title}
+            </a>
+          ))}
+          <a
+            href={actionButton.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block mt-2 text-center bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600"
+          >
+            {actionButton.title}
+          </a>
+        </div>
+      )}
+    </header>
+  );
 };
 
 export default Header;

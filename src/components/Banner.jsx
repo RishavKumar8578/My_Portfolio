@@ -1,88 +1,74 @@
-import bannerImage from "../assets/img2.png"
-import bgImage from "../assets/banner_wallpaper.svg"
+import React, { useEffect, useRef } from "react";
 import Typed from "typed.js";
-import { useRef } from "react";
-import { useEffect } from "react";
+import bannerImg from "../assets/comp.gif"
 const Banner = () => {
-  const el = useRef(null);
+  const typedRef = useRef(null);
 
   useEffect(() => {
-    const typed = new Typed(el.current, {
-      strings: ["Java Developer.", "Frontend Developer.", "Backend Developer."], // Strings to display
-      // Speed settings, try diffrent values untill you get good results
-      startDelay: 100,
-      typeSpeed: 50,
-      backSpeed: 10,
-      backDelay: 100,
+    const typed = new Typed(typedRef.current, {
+      strings: ["Java Developer", "Backend Developer", "Frontend Developer"],
+      typeSpeed: 60,
+      backSpeed: 30,
+      backDelay: 1200,
       loop: true,
     });
 
-    // Destropying
-    return () => {
-      typed.destroy();
-    };
+    return () => typed.destroy();
   }, []);
 
   return (
-    <div
-       style={{
-    backgroundImage: `url(${bgImage})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center", // make the background centered
-  }}
-  className="main-container flex flex-col md:flex-row items-center justify-center min-h-screen text-white"
-    >
-      {/* first dabba */}
-      <div className="w-full flex items-center justify-center text-white ">
-        {/* text */}
-        <div className="w-2/3 space-y-2  ms-10">
-          <h3 className="text-3xl font-semibold">Hi, I am</h3>
-          <h1 className="text-5xl font-bold">Rishav Kumar</h1>
-          <h2 className="text-3xl ">
-            I am <span className="font-bold underline" ref={el}></span>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white px-6">
+      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
+        
+        {/* Left Content */}
+        <div className="text-center md:text-left w-full md:w-1/2 space-y-5">
+          <h2 className="text-lg md:text-xl text-purple-300 font-medium">
+            Hi 👋
           </h2>
-          <p className="">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Repellendus, nemo. Omnis quis reprehenderit aspernatur culpa
-            inventore rem, illum iure optio et blanditiis quia alias
-            consequuntur totam dicta vel molestiae. Odio laboriosam quisquam,
-            exercitationem omnis numquam vero nesciunt explicabo incidunt vel
-            eaque a repellat nisi, debitis repudiandae excepturi quasi
-            praesentium id!
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            I'm Rishav Kumar
+          </h1>
+          <h3 className="text-xl md:text-2xl">
+            I am a <span className="text-orange-400 font-semibold underline" ref={typedRef}></span>
+          </h3>
 
-          <div className="icons-container flex space-x-5">
-            <a className=" hover:bg-orange-600 border cursor-pointer  px-3 py-4 w-16 h-16  rounded-full flex justify-center items-center bg-gray-800">
-              <i class="fa-brands text-4xl  fa-facebook"></i>
-            </a>
+          {/* Social Links */}
+          <div className="flex justify-center md:justify-start gap-5 pt-4">
+            {[
+              { href: "https://github.com/RishavKumar8578", icon: "fa-github" },
+              { href: "https://linkedin.com/in/rishav-kumar-4b15b6197", icon: "fa-linkedin-in" },
+              { href: "https://youtube.com/@rishavkumar8564", icon: "fa-youtube" },
+              { href: "https://instagram.com/rishavkumar8578", icon: "fa-instagram" },
+            ].map((item, idx) => (
+              <a
+                key={idx}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 flex items-center justify-center bg-gray-800 hover:bg-orange-500 rounded-full transition"
+              >
+                <i className={`fab ${item.icon} text-xl`}></i>
+              </a>
+            ))}
+          </div>
 
-            <a className=" hover:bg-orange-600   border cursor-pointer  px-3 py-4 w-16 h-16  rounded-full flex justify-center items-center bg-gray-800">
-              <i class="fa-brands text-4xl  fa-instagram"></i>
-            </a>
-
-            <a className="  hover:bg-orange-600 border  cursor-pointer  px-3 py-4 w-16 h-16  rounded-full flex justify-center items-center bg-gray-800">
-              <i class="fa-brands text-4xl  fa-youtube"></i>
-            </a>
-
-            <a className=" hover:bg-orange-600  border  cursor-pointer px-3 py-4 w-16 h-16  rounded-full flex justify-center items-center bg-gray-800">
-              <i class="fa-brands text-4xl  fa-linkedin-in"></i>
+          {/* CTA Button */}
+          <div className="pt-6">
+            <a
+              href="#contacts"
+              className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full text-lg shadow-md transition-all"
+            >
+              Contact Me
             </a>
           </div>
-          <br />
-          <a
-            className=" text-2xl     px-3  py-2 bg-orange-500  rounded-full shadow-lg"
-            href="/contact"
-          >
-            Contact Me
-          </a>
         </div>
-      </div>
 
-      {/* second  dabba */}
-
-      <div className=" w-full flex justify-center">
-        {/* image */}
-        <img className="rounded-full my-2 shadow-lg w-fit" src={bannerImage} />
+        {/* Right Content: Animated Circle */}
+        <div className="w-full md:w-1/2 flex justify-center relative">
+          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-purple-700 to-orange-500 shadow-2xl flex items-center justify-center text-4xl font-bold text-white">
+            <img className="rounded-full border-white" src={bannerImg} alt="" />
+          </div>
+        </div>
       </div>
     </div>
   );
