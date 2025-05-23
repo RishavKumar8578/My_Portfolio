@@ -7,7 +7,12 @@ const Contacts = () => {
   // ******************* formspree.io****************************//
   const [state, handleSubmit] = useForm("mvganlon");
   if (state.succeeded) {
-      return <p className='text-sm text-gray-600 mt-2'>Thanks for joining!</p>;
+      return (
+  <p className="bg-gradient-to-r from-green-400 to-blue-500 text-white text-sm font-medium rounded-xl p-4 mt-4 shadow-md animate-pulse text-center">
+    🎉 Thanks for joining!
+  </p>
+);
+
   }
 
   // ******************* previous code***************************//
