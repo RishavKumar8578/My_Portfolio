@@ -11,7 +11,7 @@ const About = () => {
      This internship helped me strengthen my development skills and prepared me for professional roles in software development.`,
     actionButton: {
       title: "Download CV",
-      link: "https://drive.google.com/file/d/1GC1MWHglZ4JoXAT6K_dByOMS1cg_ewt2/view",
+      link: "https://drive.google.com/file/d/1c7iPYZfocM3xL70-Z7l4tPoB77APaQo6/view",
     },
   });
 
