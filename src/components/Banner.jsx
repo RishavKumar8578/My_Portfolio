@@ -38,7 +38,7 @@ const Banner = () => {
               { href: "https://github.com/RishavKumar8578", icon: "fa-github" },
               { href: "https://linkedin.com/in/rishav-kumar-4b15b6197", icon: "fa-linkedin-in" },
               { href: "https://youtube.com/@rishavkumar8564", icon: "fa-youtube" },
-              { href: "https://instagram.com/rishavkumar8578", icon: "fa-instagram" },
+              { href: "https://www.instagram.com/vats_rishav_143/", icon: "fa-instagram" },
             ].map((item, idx) => (
               <a
                 key={idx}
