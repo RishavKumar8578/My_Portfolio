@@ -12,7 +12,7 @@ const Header = () => {
   ]);
   const [actionButton] = useState({
     title: "Download CV",
-    link: "https://drive.google.com/file/d/1c7iPYZfocM3xL70-Z7l4tPoB77APaQo6/view",
+    link: "https://drive.google.com/file/d/1GKlfgHYZUQFXA2CiWcijvNKFn4Dcz6gq/view",
   });
 
   const [isOpen, setIsOpen] = useState(false);

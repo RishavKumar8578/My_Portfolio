@@ -24,12 +24,14 @@ const Skills = () => {
     { title: "Postman", id: 19 },
     { title: "Tomcat", id: 20 },
     { title: "NetBeans", id: 21 },
+    { title: "MicroServices", id: 22 },
+    { title: "Kafka", id: 23 },
   ]);
 
   return (
     <div className="border py-20 bg-violet-400 px-4">
       <h1 className="text-4xl font-bold text-center">My Skills</h1>
-      <h3 className="text-center pb-16">___ what I know ___</h3>
+      <h3 className="text-center pb-16 text-gray-600">___ what I know ___</h3>
 
       {/* Background Container */}
       <div

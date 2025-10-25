@@ -11,7 +11,7 @@ const About = () => {
      This internship helped me strengthen my development skills and prepared me for professional roles in software development.`,
     actionButton: {
       title: "Download CV",
-      link: "https://drive.google.com/file/d/1c7iPYZfocM3xL70-Z7l4tPoB77APaQo6/view",
+      link: "https://drive.google.com/file/d/1GKlfgHYZUQFXA2CiWcijvNKFn4Dcz6gq/view",
     },
   });
 
@@ -35,7 +35,7 @@ const About = () => {
   return (
     <div className="main-container border py-20 bg-violet-400 px-4">
       <h1 className="text-center text-4xl font-bold">About Me</h1>
-      <h3 className="text-center pb-16">___ who i am ___</h3>
+      <h3 className="text-center pb-16 text-gray-600">___ who i am ___</h3>
       <div className="inside-main flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
         {/* Image */}
         <div className="w-full md:w-1/2 flex justify-center">

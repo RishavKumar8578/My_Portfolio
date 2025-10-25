@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from './components/Header'
 import Banner from './components/Banner'
 import About from './components/About'
+import Experience from './components/Experience';
 import MyProject from './components/MyProject'
 import Footer from './components/Footer'
 import Skills from './components/Skills';
@@ -25,6 +26,10 @@ function App() {
 
       <section id="about">
         <About />
+      </section>
+
+      <section id="experience">
+        <Experience />
       </section>
 
       <section id="skills">

@@ -40,7 +40,7 @@ const Contacts = () => {
   return (
    <div className="contact-container border py-20 bg-violet-400 px-4" id="contact">
   <h2 className="text-4xl font-bold text-center">Contact Me</h2>
-  <h3 className="text-center pb-16">___ get in touch ___</h3>
+  <h3 className="text-center pb-16 text-gray-600">___ get in touch ___</h3>
 
   {/* Responsive Container */}
   <div className="container mx-auto flex flex-col  md:flex-row md:space-x-8 space-y-8 md:space-y-0">
